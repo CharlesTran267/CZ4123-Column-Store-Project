@@ -143,7 +143,11 @@ class Processor:
         original_start_idx = self.zone_maps['month'][zones[0]]['min_idx']
 
         list_idx = self.get_relevant_index(zones)
-        print(f"Found {len(list_idx)} records")
+        if len(list_idx) == 0:
+            print("No records found")
+        else:
+            print(f"Found {len(list_idx)} records")
+
         relevant_zones = (list_idx[0] // MAX_FILE_LINE, list_idx[-1] // MAX_FILE_LINE)
 
         list_relative_idx = [i-original_start_idx for i in list_idx]
