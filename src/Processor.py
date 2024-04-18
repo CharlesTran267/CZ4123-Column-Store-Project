@@ -4,7 +4,7 @@ from project_config import (
     RESULTS_FOLDER,
     MAPPER
 )
-from typing import List, Dict, Tuple, Set, Union
+from typing import List, Dict, Tuple
 import os
 import csv
 
