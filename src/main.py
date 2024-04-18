@@ -127,7 +127,24 @@ def main() -> None:
 
     # sort the data file by month column, excluding the header
     print('Sorting data by month...')
-    os.system(f'(head -n 1 {ORIGINAL_DATA_FILE} && tail -n +2 {ORIGINAL_DATA_FILE} | sort -t, -k1,1) > {SORTED_DATA_FILE}')
+    def sort_data_file(original_file, sorted_file):
+        with open(original_file, mode='r', newline='') as infile:
+            # Create a CSV reader
+            reader = csv.reader(infile)
+            # Extract the header (first row) separately
+            header = next(reader)
+            # Sort the rest of the data based on the first column (index 0)
+            sorted_data = sorted(reader, key=lambda row: row[0])
+
+        with open(sorted_file, mode='w', newline='') as outfile:
+            # Create a CSV writer
+            writer = csv.writer(outfile)
+            # Write the header first
+            writer.writerow(header)
+            # Write the sorted data rows
+            writer.writerows(sorted_data)
+    
+    sort_data_file(ORIGINAL_DATA_FILE, SORTED_DATA_FILE)
 
     zone_maps = split_columns(data_file=SORTED_DATA_FILE, zone_maps=zone_maps)
 
