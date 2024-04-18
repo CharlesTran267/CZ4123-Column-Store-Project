@@ -10,6 +10,7 @@ from project_config import (
 )
 from typing import List, Dict, Tuple
 from Processor import Processor
+import time
 
 
 def get_columns(data_file: str) -> List:
@@ -17,7 +18,7 @@ def get_columns(data_file: str) -> List:
     return open(data_file, 'r').readline().rstrip().split(',')
 
 
-def split_columns(data_file: str, zone_maps: Dict) -> None:
+def split_columns(data_file: str, zone_maps: Dict) -> Dict: 
     """Splits the large csv into individual columns in their own files"""
     columns = get_columns(data_file=data_file)
     recreate_folders(folders=[SPLIT_DATA_FOLDER])
@@ -146,7 +147,9 @@ def main() -> None:
             continue
         
         processer = Processor(matric_num=matric_num, zone_maps=zone_maps)
+        start = time.time()
         processer.process_data()
+        print(f'Time taken: {time.time() - start:.2f} seconds')
 
 
 if __name__ == '__main__':

@@ -204,3 +204,5 @@ class Processor:
             writer.writerow([year, commence_month, self.town, 'Minimum Area', min_area])
             writer.writerow([year, commence_month, self.town, 'Average Area', round(avg_area,2)])
             writer.writerow([year, commence_month, self.town, 'Standard Deviation of Area', round(std_dev_area,2)])
+        
+        print(f"Results written to {RESULTS_FOLDER}/ScanResult_{self.matric_num}.csv")
