@@ -5,13 +5,12 @@ from project_config import (
     ORIGINAL_DATA_FILE,
     SORTED_DATA_FILE,
     MAX_FILE_LINE,
-    MAPPER,
     ZONE_MAP_COLS
 )
 from typing import List, Dict, Tuple
 from Processor import Processor
 import time
-
+import csv
 
 def get_columns(data_file: str) -> List:
     """Gets header columns in file"""

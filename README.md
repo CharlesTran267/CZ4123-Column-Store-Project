@@ -2,10 +2,11 @@
 
 Steps to get started:
 
-1. `python -m venv venv`
+1. `python -m venv .venv`
 2. `.venv/Scripts/activate`(Windows) or `source .venv/bin/activate`(Linux)
 3. `pip install -r requirements.txt`
 5. `python src/main.py`
+
 
 Project Idea:
 - First, sort the data by `month` column and break data into smaller zones and store in files. Each file contain only a subset of a column. For example, `month` column is broken into `month_0.txt`, `month_1.txt`, etc and town column is broken into `town_0.txt`, `town_1.txt`, etc.
