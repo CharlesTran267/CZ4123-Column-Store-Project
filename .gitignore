@@ -3,3 +3,5 @@
 results/
 split_data/
 data/ResalePricesSingapore_sorted.csv
+*.pdf
+*.zip
